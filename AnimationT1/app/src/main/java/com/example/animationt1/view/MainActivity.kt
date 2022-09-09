@@ -45,7 +45,6 @@ import com.example.animationt1.model.Message
 import com.example.animationt1.model.SampleData
 import com.example.animationt1.ui.theme.AnimationT1Theme
 import com.example.recomposition1.RecompositionActivity
-import org.intellij.lang.annotations.JdkConstants
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,7 +100,7 @@ fun MessageCard(msg: Message) {
 
             Surface(
                 shape = MaterialTheme.shapes.medium,
-                elevation = 1.dp,
+                elevation = 5.dp,
                 // surfaceColor color will be changing gradually from primary to surface
                 color = surfaceColor,
                 // animateContentSize will change the Surface size gradually

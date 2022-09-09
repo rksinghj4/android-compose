@@ -8,7 +8,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.MaterialTheme
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.composet1.ui.theme.ComposeT1Theme
 
 class MainActivity : ComponentActivity() {
@@ -40,9 +42,9 @@ data class Message(val author: String, val body: String)
 @Composable
 fun MessageCard(msg: Message) {
     Box(contentAlignment = Alignment.Center) {
-        Column() {
+        Column(modifier = Modifier.padding(start = 20.dp)) {
             Text(text = "Hello ${msg.author}!",
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().height(40.dp),
                 textAlign = TextAlign.Center)
             Text(text = "${msg.body}!",
                 modifier = Modifier.fillMaxWidth(),
@@ -71,9 +73,10 @@ fun MessageCard(msg: Message) {
             Text(text = "${msg.body}!",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center)
-
         }
+
     }
+
 }
 
 @Preview(name = "Light Mode", showBackground = true)
@@ -93,7 +96,7 @@ fun DefaultPreview() {
     }
 }
 
-@Preview()
+@Preview
 @Composable
 fun DefaultPreviewWithBG() {
     ComposeT1Theme {
