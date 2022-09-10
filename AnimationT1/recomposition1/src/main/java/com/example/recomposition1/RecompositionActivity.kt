@@ -29,7 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.animationt1.ui.theme.AnimationT1Theme
+import com.example.commonlib.theme.AnimationT1Theme
 import com.example.recomposition1.viewmodel.RecompositionViewModel
 
 class RecompositionActivity : ComponentActivity() {
@@ -39,7 +39,6 @@ class RecompositionActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
             AnimationT1Theme {
                 Surface {
                     Column {
@@ -86,11 +85,11 @@ fun ListComposableWithLazy(myList: List<String>, viewModelCount: Int = 0) {
 @Deprecated("Example with bug/LazyColumn")
 @Composable
 fun ListComposableWithLazyAndBug(myList: List<String>, viewModelCount: Int = 0) {
-    var count by remember {//infinite loop problem
+   /* var count by remember {//infinite loop problem
         mutableStateOf(0)
     }
-
-    //var count = 0 //
+*/
+    var count = 0 //
     Box(Modifier.wrapContentSize()) {
         Row(Modifier
             .padding(10.dp)
@@ -99,9 +98,10 @@ fun ListComposableWithLazyAndBug(myList: List<String>, viewModelCount: Int = 0) 
                 items(myList) { item ->
                     run {
                         Text("Item: $item")
-                        if (count < myList.size) {
+                        count++
+                        /*if (count < myList.size) {
                             count++ // Avoid! Side-effect of the column recomposing.
-                        }
+                        }*/
                         Log.d("Count", "Lazy Count = $count")
                     }
                 }

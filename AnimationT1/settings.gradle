@@ -16,3 +16,5 @@ rootProject.name = "AnimationT1"
 include ':app'
 include ':recomposition1'
 include ':statehoisting'
+include ':modifiers'
+include ':commonlib'

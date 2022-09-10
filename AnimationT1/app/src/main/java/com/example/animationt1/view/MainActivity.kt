@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -44,6 +43,7 @@ import com.example.animationt1.R
 import com.example.animationt1.model.Message
 import com.example.animationt1.model.SampleData
 import com.example.animationt1.ui.theme.AnimationT1Theme
+import com.example.modifiers.ModifiersActivity
 import com.example.recomposition1.RecompositionActivity
 
 class MainActivity : ComponentActivity() {
@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
 
                     Button( onClick = {
                         startActivity(Intent(this@MainActivity,
-                            RecompositionActivity::class.java))
+                            ModifiersActivity::class.java))
                     }) {
                         Text(text = "Go next")
                     }
@@ -72,7 +72,7 @@ class MainActivity : ComponentActivity() {
 fun MessageCard(msg: Message) {
     Row(modifier = Modifier.padding(all = 8.dp)) {
         Image(
-            painter = painterResource(R.drawable.profile_picture),
+            painter = painterResource(com.example.commonlib.R.drawable.profile_picture),
             contentDescription = null,
             modifier = Modifier
                 .size(40.dp)
