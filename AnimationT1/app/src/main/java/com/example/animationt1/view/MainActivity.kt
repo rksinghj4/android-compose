@@ -44,6 +44,7 @@ import com.example.animationt1.model.Message
 import com.example.animationt1.model.SampleData
 import com.example.animationt1.ui.theme.AnimationT1Theme
 import com.example.modifiers.ConstraintLayoutActivity
+import com.example.modifiers.ConstraintLayoutWithComposeActivity
 import com.example.modifiers.ModifiersActivity
 import com.example.recomposition1.RecompositionActivity
 
@@ -59,7 +60,7 @@ class MainActivity : ComponentActivity() {
 
                     Button( onClick = {
                         startActivity(Intent(this@MainActivity,
-                            ConstraintLayoutActivity::class.java))
+                            ConstraintLayoutWithComposeActivity::class.java))
                     }) {
                         Text(text = "Go next")
                     }

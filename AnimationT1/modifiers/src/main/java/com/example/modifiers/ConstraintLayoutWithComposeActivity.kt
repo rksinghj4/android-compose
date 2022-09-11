@@ -79,18 +79,15 @@ fun ConstraintSet2() {
         val redBox = createRefFor(id = "redBox")
 
         val guideline = createGuidelineFromTop(.5f)
-        val barriers = createAbsoluteRightBarrier(textField1, textField2, margin = 10.dp)
+        val barriers = createEndBarrier(textField1, textField2, margin = 10.dp)
 
         constrain(textField1) {
             start.linkTo(parent.start)
             top.linkTo(parent.top)
-            width = Dimension.fillToConstraints
-
         }
         constrain(textField2) {
             start.linkTo(parent.start)
             top.linkTo(textField1.bottom)
-            width = Dimension.preferredWrapContent
         }
         constrain(greenBox) {
             start.linkTo(barriers)
