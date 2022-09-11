@@ -55,4 +55,11 @@
         app:barrierAllowsGoneWidgets="false"/>
 
 
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:constraint_referenced_ids="textView1, textView2, button"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
