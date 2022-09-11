@@ -6,9 +6,18 @@
         <entry key="../../../../../layout/compose-model-1662717475208.xml" value="0.55" />
         <entry key="../../../../../layout/compose-model-1662780363305.xml" value="0.1" />
         <entry key="../../../../../layout/compose-model-1662858658867.xml" value="0.14074074074074075" />
+        <entry key="../../../../../layout/compose-model-1662864955740.xml" value="1.0" />
+        <entry key="modifiers/src/main/res/layout/activity_constraint_layout.xml" value="0.2884963768115942" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2884963768115942" />
+      </ProjectState>
+    </option>
+  </component>
 </project>

@@ -4,8 +4,8 @@ buildscript {
     ext {
         compose_version = '1.1.1'
         minSdk_version = '26'
-        compileSdk_version = '31'
-        targetSdk_version = '31'
+        compileSdk_version = '32'
+        targetSdk_version = '32'
         androidx_core = '1.6.0'
     }
     repositories {

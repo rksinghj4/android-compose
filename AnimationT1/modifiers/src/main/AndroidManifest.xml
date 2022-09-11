@@ -4,7 +4,11 @@
 
     <application>
         <activity
+            android:name=".ConstraintLayoutWithComposeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ConstraintLayoutActivity"
+            android:theme="@style/Theme.AppCompat.Light"
             android:exported="false" />
         <activity
             android:name=".ModifiersActivity"
