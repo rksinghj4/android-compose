@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
 
                     Button( onClick = {
                         startActivity(Intent(this@MainActivity,
-                            ConstraintLayoutActivity::class.java))
+                            ModifiersActivity::class.java))
                     }) {
                         Text(text = "Go next")
                     }

@@ -71,7 +71,10 @@ fun ConstraintSet1() {
 
 @Composable
 fun ConstraintSet2() {
+    //Decoupled the ConstraintSet from ConstraintLayout. Later on it can be passed as parameter in
+    //ConstraintLayout
     val constraintSet = ConstraintSet {
+        //Create reference for each individual composable (i.e. UI elements)
         val textField1 = createRefFor(id = "textField1")
         val textField2 = createRefFor(id = "textField2")
 

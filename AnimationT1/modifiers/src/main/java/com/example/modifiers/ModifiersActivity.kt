@@ -8,6 +8,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.paddingFromBaseline
 import androidx.compose.foundation.layout.requiredSize
@@ -40,8 +43,8 @@ class ModifiersActivity : ComponentActivity() {
                 Surface(/*color = Theme.Theme2Trust.colors.background*/
                     color = Color.Yellow) {
                     Column {
-                        ArtistCard(Artist("ARMAN", "5 minutes ago"))
-                        ArtistCard(Artist("ARMAN", "5 minutes ago"))
+                        ArtistCard1(Artist("ARMAN", "5 minutes ago"))
+                        ArtistCard2(Artist("ARMAN", "5 minutes ago"))
 
                     }
                 }
@@ -53,10 +56,11 @@ class ModifiersActivity : ComponentActivity() {
 data class Artist(val name: String, val lastSeenOnline: String)
 
 @Composable
-fun ArtistCard(artist: Artist) {
+fun ArtistCard1(artist: Artist) {
     Row(
         modifier = Modifier
-            .size(width = 400.dp, height = 100.dp).padding(top=20.dp)
+            .size(width = 400.dp, height = 100.dp)
+            .padding(top = 20.dp)
             .background(color = Color.Cyan, shape = RoundedCornerShape(10.dp))
             .border(1.5.dp, MaterialTheme.colors.secondaryVariant, RoundedCornerShape(5.dp))
     ) {
@@ -74,12 +78,40 @@ fun ArtistCard(artist: Artist) {
                 //TODO: modifier = Modifier.alignBy(alignmentLine = VerticalAlignmentLine(merger = ::merger1))
                 modifier = Modifier.paddingFromBaseline(top = 50.dp)
             )
-            Text(artist.lastSeenOnline)
+            Text(artist.lastSeenOnline, Modifier.padding(start = 150.dp))//offset vs padding
         }
     }
 }
 
-fun merger1(a: Int, b: Int): Int = a+b
+@Composable
+fun ArtistCard2(artist: Artist) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth().height(150.dp)
+            .padding(top = 20.dp)
+            .background(color = Color.Cyan, shape = RoundedCornerShape(10.dp))
+            .border(1.5.dp, MaterialTheme.colors.secondaryVariant, RoundedCornerShape(5.dp))
+    ) {
+        Image(
+            painter = painterResource(com.example.commonlib.R.drawable.profile_picture),
+            contentDescription = null,
+            modifier = Modifier
+                .weight(2f)
+                .requiredSize(150.dp)
+                .clip(CircleShape)
+                .border(1.5.dp, MaterialTheme.colors.secondaryVariant, CircleShape)
+        )
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = artist.name,
+                //TODO: modifier = Modifier.alignBy(alignmentLine = VerticalAlignmentLine(merger = ::merger1))
+                modifier = Modifier.paddingFromBaseline(top = 50.dp)
+            )
+            Text(artist.lastSeenOnline, //Modifier.offset(x = 150.dp)
+         ) //offset vs padding
+        }
+    }
+}
 
 @Preview
 @Composable
@@ -87,9 +119,10 @@ fun defaultPreview() {
     AnimationT1Theme {
         Surface(color = Color.Yellow) {
             Column {
-                ArtistCard(Artist("ARMAN", "5 minutes ago"))
-                ArtistCard(Artist("ARMAN", "5 minutes ago"))
+                ArtistCard1(Artist("ARMAN", "5 minutes ago"))
+                ArtistCard2(Artist("ARMAN", "5 minutes ago"))
 
-            }        }
+            }
+        }
     }
 }
