@@ -1,4 +1,4 @@
-package com.example.composet1.ui.theme
+package com.example.commonlib.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
