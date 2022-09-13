@@ -1,15 +1,18 @@
 package com.example.composet1
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Button
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +23,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.commonlib.theme.ComposeT1Theme
+import com.example.effecthandlers.SideEffectActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +34,13 @@ class MainActivity : ComponentActivity() {
                 Surface(modifier = Modifier.fillMaxSize(),
                     //color = MaterialTheme.colors.background
                     color = colorResource(id = R.color.purple_200)) {
-                    MessageCard(Message("RD Sharma", "Maths book"))
+                    Column(modifier = Modifier.fillMaxHeight(1.0f), horizontalAlignment = Alignment.CenterHorizontally) {
+                        MessageCard(Message("RD Sharma", "Maths book"))
+                        Button(onClick = { startActivity(Intent(this@MainActivity, SideEffectActivity::class.java)) }) {
+                            Text(text = "Go next")
+                        }
+                    }
+
                 }
             }
         }
@@ -42,9 +52,11 @@ data class Message(val author: String, val body: String)
 @Composable
 fun MessageCard(msg: Message) {
     Box(contentAlignment = Alignment.Center) {
-        Column(modifier = Modifier.padding(start = 20.dp)) {
+        Column(modifier = Modifier.padding(start = 20.dp).fillMaxHeight(.8f)) {
             Text(text = "Hello ${msg.author}!",
-                modifier = Modifier.fillMaxWidth().height(40.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(40.dp),
                 textAlign = TextAlign.Center)
             Text(text = "${msg.body}!",
                 modifier = Modifier.fillMaxWidth(),
